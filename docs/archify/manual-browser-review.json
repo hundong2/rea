@@ -1,0 +1,57 @@
+{
+  "evidenceKind": "supplementary-browser",
+  "artifact": {
+    "sha256": "49532a8b5fa0968b41c7f84a12f495fffa6d1b0d0017ccd284e178d21123e80d",
+    "bytes": 711831
+  },
+  "observations": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900,
+      "theme": "light",
+      "screenshot": "manual-review-1440x900-light.png"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900,
+      "theme": "dark",
+      "screenshot": "manual-review-1440x900-dark.png"
+    },
+    {
+      "width": 1600,
+      "height": 1000,
+      "scrollWidth": 1600,
+      "scrollHeight": 1000,
+      "theme": "light",
+      "screenshot": null
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scrollWidth": 1920,
+      "scrollHeight": 1080,
+      "theme": "light",
+      "screenshot": null
+    },
+    {
+      "width": 2048,
+      "height": 1320,
+      "scrollWidth": 2048,
+      "scrollHeight": 1320,
+      "theme": "light",
+      "screenshot": "manual-review-2048x1320-light.png"
+    },
+    {
+      "width": 2048,
+      "height": 1320,
+      "scrollWidth": 2048,
+      "scrollHeight": 1320,
+      "theme": "dark",
+      "screenshot": "manual-review-2048x1320-dark.png"
+    }
+  ]
+}

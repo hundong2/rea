@@ -5,6 +5,8 @@
 
 # REA : rétro-ingénierie de tout
 
+[한국어 학습 가이드](../../guide/README.md) · [코드 아키텍처](../archify/README.md)
+
 ### Un seul MCP pour la rétro-ingénierie des binaires, des applications et du comportement à l'exécution.
 
 **Repérez une fonctionnalité qui vous plaît. Comprenez son fonctionnement, jusqu'au niveau du binaire.**

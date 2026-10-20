@@ -5,6 +5,8 @@
 
 # REA: Alles reverse-engineeren
 
+[한국어 학습 가이드](../../guide/README.md) · [코드 아키텍처](../archify/README.md)
+
 ### Ein MCP für das Reverse Engineering von Binärdateien, Anwendungen und Laufzeitverhalten.
 
 **Eine Funktion gefällt dir? Verstehe, wie sie funktioniert – bis hinunter auf die Binärebene.**

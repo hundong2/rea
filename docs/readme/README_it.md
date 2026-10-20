@@ -5,6 +5,8 @@
 
 # REA: Reverse Engineer Anything
 
+[한국어 학습 가이드](../../guide/README.md) · [코드 아키텍처](../archify/README.md)
+
 ### Un unico MCP per l'ingegneria inversa su binari, applicazioni e comportamento a runtime.
 
 **Vedi una funzionalità che ti piace. Capisci come funziona, fino al livello binario.**

@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "REA의 JavaScript 정적 분석 경로",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/hundong2/rea.git",
+      "revision": "c374c2fe7290b914d73d9e27af38b498753ec593"
+    }
+  },
+  "layout": {
+    "mode": "grid",
+    "origin": [40, 60],
+    "cols": 4,
+    "gapX": 140,
+    "gapY": 150,
+    "cellW": 180,
+    "cellH": 80
+  },
+  "components": [
+    {
+      "id": "terminal-adapter",
+      "type": "frontend",
+      "label": "CLI 분석 명령",
+      "sublabel": "경로·옵션 변환",
+      "row": 1,
+      "col": 0,
+      "size": [180, 80],
+      "sources": [
+        { "path": "scripts/rea.mjs", "line": 60, "end_line": 113 },
+        { "path": "src/cli/electronCommands.ts", "line": 267, "end_line": 325 },
+        {
+          "path": "src/cli/javascriptApplicationAnalysis.ts",
+          "line": 11,
+          "end_line": 51
+        }
+      ]
+    },
+    {
+      "id": "analysis-service",
+      "type": "backend",
+      "label": "공유 분석 서비스",
+      "sublabel": "입력·결과 검증",
+      "row": 1,
+      "col": 1,
+      "size": [180, 80],
+      "sources": [
+        {
+          "path": "src/application/javascript/JavaScriptApplicationService.ts",
+          "line": 33,
+          "end_line": 115
+        }
+      ]
+    },
+    {
+      "id": "artifact-reconstruction",
+      "type": "backend",
+      "label": "아티팩트 재구성",
+      "sublabel": "파일·모듈·Electron 관계",
+      "row": 1,
+      "col": 2,
+      "size": [180, 80],
+      "sources": [
+        {
+          "path": "src/application/javascript/JavaScriptArtifactReconstruction.ts",
+          "line": 73,
+          "end_line": 212
+        }
+      ]
+    },
+    {
+      "id": "source-worker",
+      "type": "backend",
+      "label": "분석 worker",
+      "sublabel": "AST 파싱·의미 투영",
+      "row": 1,
+      "col": 3,
+      "size": [180, 80],
+      "sources": [
+        {
+          "path": "src/artifacts/javascript/JavaScriptSourceAnalysis.ts",
+          "line": 8,
+          "end_line": 12
+        },
+        {
+          "path": "src/javascript/analysis/JavaScriptAnalysisWorker.ts",
+          "line": 87,
+          "end_line": 150
+        },
+        {
+          "path": "src/composition/javascriptAnalysisWorkerProcess.ts",
+          "line": 20,
+          "end_line": 87
+        }
+      ]
+    },
+    {
+      "id": "mcp-adapter",
+      "type": "frontend",
+      "label": "MCP 도구 등록",
+      "sublabel": "이름이 지정된 입력 계약",
+      "row": 0,
+      "col": 1,
+      "size": [180, 80],
+      "sources": [
+        {
+          "path": "src/server/registerElectronTools.ts",
+          "line": 59,
+          "end_line": 122
+        }
+      ]
+    },
+    {
+      "id": "evidence-sealing",
+      "type": "backend",
+      "label": "Evidence 생성",
+      "sublabel": "결과 동결·검증·해시",
+      "row": 2,
+      "col": 1,
+      "size": [180, 80],
+      "sources": [
+        {
+          "path": "src/application/javascript/JavaScriptApplicationEvidence.ts",
+          "line": 18,
+          "end_line": 64
+        }
+      ]
+    },
+    {
+      "id": "local-inventory",
+      "type": "external",
+      "label": "로컬 파일·목록",
+      "sublabel": "디렉터리 또는 ASAR",
+      "row": 2,
+      "col": 2,
+      "size": [180, 80],
+      "sources": [
+        {
+          "path": "src/artifacts/inventory/scanCanonical.ts",
+          "line": 53,
+          "end_line": 100
+        },
+        {
+          "path": "src/application/javascript/JavaScriptArtifactReconstruction.ts",
+          "line": 96,
+          "end_line": 141
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "cli-analysis",
+      "from": "terminal-adapter",
+      "to": "analysis-service",
+      "label": "검증 요청",
+      "variant": "emphasis"
+    },
+    {
+      "id": "service-reconstruct",
+      "from": "analysis-service",
+      "to": "artifact-reconstruction",
+      "label": "재구성",
+      "variant": "emphasis"
+    },
+    {
+      "id": "reconstruct-worker",
+      "from": "artifact-reconstruction",
+      "to": "source-worker",
+      "label": "소스 분석",
+      "variant": "emphasis"
+    },
+    {
+      "id": "mcp-shared-service",
+      "from": "mcp-adapter",
+      "to": "analysis-service",
+      "label": "동일 서비스",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [450, 154]
+    },
+    {
+      "id": "service-evidence",
+      "from": "analysis-service",
+      "to": "evidence-sealing",
+      "label": "증거 생성",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [450, 384]
+    },
+    {
+      "id": "reconstruct-read",
+      "from": "artifact-reconstruction",
+      "to": "local-inventory",
+      "label": "읽기·식별",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [770, 384]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "두 진입점의 공통 의미",
+      "items": [
+        "CLI와 MCP가 같은 분석 서비스를 호출",
+        "반환 결과는 호출 어댑터로 되돌아감"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "정적 분석의 확인 범위",
+      "items": [
+        "대상 코드를 실행하지 않고 구문을 분석",
+        "선택 범위·한계·정리 실패를 보존"
+      ]
+    }
+  ]
+}

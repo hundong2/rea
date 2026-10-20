@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>REA 구조도 보충 시각 검토</title>
+  <style>
+    body {
+      margin: 32px;
+      font: 16px system-ui;
+      background: #f3f5f8;
+      color: #162234;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    figure {
+      margin: 0;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccd3df;
+    }
+    figcaption {
+      padding: 12px 0;
+    }
+    p {
+      max-width: 90ch;
+    }
+  </style>
+  <h1>REA 구조도 보충 시각 검토</h1>
+  <p>
+    표준 visual-check는 로딩 이벤트 시간 초과로 실패했다. 아래는 동일한 전달
+    HTML을 별도 Playwright 브라우저에서 확인한 보충 이미지다. 표준 자동 검사
+    성공을 뜻하지 않는다. SHA-256과 측정 범위는
+    <a href="manual-browser-review.json">보충 기록</a>에 있다.
+  </p>
+  <main>
+    <figure>
+      <img src="manual-review-1440x900-light.png" alt="1440×900 밝은 테마" />
+      <figcaption>1440×900 · light</figcaption>
+    </figure>
+    <figure>
+      <img src="manual-review-1440x900-dark.png" alt="1440×900 어두운 테마" />
+      <figcaption>1440×900 · dark</figcaption>
+    </figure>
+    <figure>
+      <img src="manual-review-2048x1320-light.png" alt="2048×1320 밝은 테마" />
+      <figcaption>2048×1320 · light</figcaption>
+    </figure>
+    <figure>
+      <img src="manual-review-2048x1320-dark.png" alt="2048×1320 어두운 테마" />
+      <figcaption>2048×1320 · dark</figcaption>
+    </figure>
+  </main>
+</html>

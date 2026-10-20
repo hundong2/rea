@@ -5,6 +5,8 @@
 
 # REA: Reverse Engineer Anything
 
+[한국어 학습 가이드](guide/README.md) · [코드 아키텍처](docs/archify/README.md)
+
 ### One MCP for reverse engineering across binaries, applications, and runtime behavior.
 
 **See a feature you like. Understand how it works, down to the binary level.**

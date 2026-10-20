@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "architecture",
+  "input": "D:\\workspace\\laboratory\\rea\\docs\\archify\\architecture.json",
+  "output": "D:\\workspace\\laboratory\\rea\\docs\\archify\\architecture.html",
+  "specification": {
+    "sha256": "8bd4e4d647e3064e878cc4f27d661acb86d1d49ace64a2065f22e8ef289ac37e",
+    "bytes": 5399
+  },
+  "artifact": {
+    "sha256": "49532a8b5fa0968b41c7f84a12f495fffa6d1b0d0017ccd284e178d21123e80d",
+    "bytes": 711831
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  },
+  "evidence": {
+    "verified": true,
+    "repository": "https://github.com/hundong2/rea",
+    "revision": "c374c2fe7290b914d73d9e27af38b498753ec593",
+    "references": 12
+  }
+}
